@@ -5,7 +5,7 @@
 // File: welchparse.cpp
 //
 // MATLAB Coder version            : 5.4
-// C/C++ source code generated on  : 03-Apr-2023 13:38:12
+// C/C++ source code generated on  : 03-Apr-2023 14:44:32
 //
 
 // Include Files
@@ -29,16 +29,16 @@
 #include <string>
 
 // Function Declarations
-static void bb_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
+static void ab_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
 
-static void cb_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
-
-static void db_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
-
-static void eb_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
-
-static void j_rtErrorWithMessageID(const char *r, const char *aFcnName,
+static void h_rtErrorWithMessageID(const char *r, const char *aFcnName,
                                    int aLineNum);
+
+static void w_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
+
+static void x_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
+
+static void y_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
 
 // Function Definitions
 //
@@ -46,7 +46,52 @@ static void j_rtErrorWithMessageID(const char *r, const char *aFcnName,
 //                int aLineNum
 // Return Type  : void
 //
-static void bb_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
+static void ab_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
+{
+  std::string errMsg;
+  std::stringstream outStream;
+  outStream << "The length of the segments cannot be greater than the length "
+               "of the input signal.";
+  outStream << "\n";
+  ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
+  if (omp_in_parallel()) {
+    errMsg = outStream.str();
+    std::fprintf(stderr, "%s", errMsg.c_str());
+    std::abort();
+  } else {
+    throw std::runtime_error(outStream.str());
+  }
+}
+
+//
+// Arguments    : const char *r
+//                const char *aFcnName
+//                int aLineNum
+// Return Type  : void
+//
+static void h_rtErrorWithMessageID(const char *r, const char *aFcnName,
+                                   int aLineNum)
+{
+  std::string errMsg;
+  std::stringstream outStream;
+  ((outStream << "The ") << r) << " argument must be a vector or a scalar.";
+  outStream << "\n";
+  ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
+  if (omp_in_parallel()) {
+    errMsg = outStream.str();
+    std::fprintf(stderr, "%s", errMsg.c_str());
+    std::abort();
+  } else {
+    throw std::runtime_error(outStream.str());
+  }
+}
+
+//
+// Arguments    : const char *aFcnName
+//                int aLineNum
+// Return Type  : void
+//
+static void w_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
 {
   std::string errMsg;
   std::stringstream outStream;
@@ -67,7 +112,7 @@ static void bb_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
 //                int aLineNum
 // Return Type  : void
 //
-static void cb_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
+static void x_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
 {
   std::string errMsg;
   std::stringstream outStream;
@@ -91,57 +136,12 @@ static void cb_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
 //                int aLineNum
 // Return Type  : void
 //
-static void db_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
+static void y_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
 {
   std::string errMsg;
   std::stringstream outStream;
   outStream << "The number of samples to overlap must be less than the length "
                "of the segments.";
-  outStream << "\n";
-  ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
-  if (omp_in_parallel()) {
-    errMsg = outStream.str();
-    std::fprintf(stderr, "%s", errMsg.c_str());
-    std::abort();
-  } else {
-    throw std::runtime_error(outStream.str());
-  }
-}
-
-//
-// Arguments    : const char *aFcnName
-//                int aLineNum
-// Return Type  : void
-//
-static void eb_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
-{
-  std::string errMsg;
-  std::stringstream outStream;
-  outStream << "The length of the segments cannot be greater than the length "
-               "of the input signal.";
-  outStream << "\n";
-  ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
-  if (omp_in_parallel()) {
-    errMsg = outStream.str();
-    std::fprintf(stderr, "%s", errMsg.c_str());
-    std::abort();
-  } else {
-    throw std::runtime_error(outStream.str());
-  }
-}
-
-//
-// Arguments    : const char *r
-//                const char *aFcnName
-//                int aLineNum
-// Return Type  : void
-//
-static void j_rtErrorWithMessageID(const char *r, const char *aFcnName,
-                                   int aLineNum)
-{
-  std::string errMsg;
-  std::stringstream outStream;
-  ((outStream << "The ") << r) << " argument must be a vector or a scalar.";
   outStream << "\n";
   ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
   if (omp_in_parallel()) {
@@ -183,23 +183,23 @@ void welchparse(const ::coder::array<creal_T, 2U> &x1,
                 int winName_size[2], char winParam_data[], int winParam_size[2],
                 double *noverlap, double *k, double *L, struct_T *options)
 {
-  static rtRunTimeErrorInfo k_emlrtRTEI{
+  static rtRunTimeErrorInfo f_emlrtRTEI{
       52,                 // lineNo
       "reshapeSizeChecks" // fName
   };
-  static rtRunTimeErrorInfo l_emlrtRTEI{
-      183,           // lineNo
-      "parse_inputs" // fName
-  };
-  static rtRunTimeErrorInfo m_emlrtRTEI{
+  static rtRunTimeErrorInfo g_emlrtRTEI{
       275,           // lineNo
       "segment_info" // fName
   };
-  static rtRunTimeErrorInfo n_emlrtRTEI{
+  static rtRunTimeErrorInfo h_emlrtRTEI{
+      183,           // lineNo
+      "parse_inputs" // fName
+  };
+  static rtRunTimeErrorInfo i_emlrtRTEI{
       276,           // lineNo
       "segment_info" // fName
   };
-  static rtRunTimeErrorInfo o_emlrtRTEI{
+  static rtRunTimeErrorInfo j_emlrtRTEI{
       251,           // lineNo
       "segment_info" // fName
   };
@@ -228,7 +228,7 @@ void welchparse(const ::coder::array<creal_T, 2U> &x1,
     }
   }
   if (!p) {
-    f_rtErrorWithMessageID("x", i_emlrtRTEI.fName, i_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID("x", d_emlrtRTEI.fName, d_emlrtRTEI.lineNo);
   }
   p = true;
   b_k = 0;
@@ -242,7 +242,7 @@ void welchparse(const ::coder::array<creal_T, 2U> &x1,
     }
   }
   if (!p) {
-    e_rtErrorWithMessageID("x", h_emlrtRTEI.fName, h_emlrtRTEI.lineNo);
+    e_rtErrorWithMessageID("x", e_emlrtRTEI.fName, e_emlrtRTEI.lineNo);
   }
   b_k = 1;
   if (x1.size(1) > 1) {
@@ -253,7 +253,7 @@ void welchparse(const ::coder::array<creal_T, 2U> &x1,
     b_k = u0;
   }
   if (x1.size(1) > b_k) {
-    cb_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+    x_rtErrorWithMessageID(f_emlrtRTEI.fName, f_emlrtRTEI.lineNo);
   }
   x.set_size(x1.size(1));
   b_k = x1.size(1);
@@ -261,7 +261,7 @@ void welchparse(const ::coder::array<creal_T, 2U> &x1,
     x[u0] = x1[u0];
   }
   if (varargin_1.size(0) == 1) {
-    bb_rtErrorWithMessageID(l_emlrtRTEI.fName, l_emlrtRTEI.lineNo);
+    w_rtErrorWithMessageID(h_emlrtRTEI.fName, h_emlrtRTEI.lineNo);
   }
   if ((varargin_1.size(0) == 0) || (varargin_1.size(0) == 1)) {
     winName_size[0] = 1;
@@ -303,7 +303,7 @@ void welchparse(const ::coder::array<creal_T, 2U> &x1,
       }
     }
     if (!p) {
-      j_rtErrorWithMessageID("WINDOW", o_emlrtRTEI.fName, o_emlrtRTEI.lineNo);
+      h_rtErrorWithMessageID("WINDOW", j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
     }
     if (varargin_1.size(0) > 1) {
       *L = varargin_1.size(0);
@@ -313,10 +313,10 @@ void welchparse(const ::coder::array<creal_T, 2U> &x1,
     }
   }
   if (*L > x1.size(1)) {
-    eb_rtErrorWithMessageID(m_emlrtRTEI.fName, m_emlrtRTEI.lineNo);
+    ab_rtErrorWithMessageID(g_emlrtRTEI.fName, g_emlrtRTEI.lineNo);
   }
   if (varargin_2 >= *L) {
-    db_rtErrorWithMessageID(n_emlrtRTEI.fName, n_emlrtRTEI.lineNo);
+    y_rtErrorWithMessageID(i_emlrtRTEI.fName, i_emlrtRTEI.lineNo);
   }
   absn = std::abs(*L);
   if ((!std::isinf(absn)) && (!std::isnan(absn))) {

@@ -5,7 +5,7 @@
 // File: psdfreqvec.cpp
 //
 // MATLAB Coder version            : 5.4
-// C/C++ source code generated on  : 03-Apr-2023 13:38:12
+// C/C++ source code generated on  : 03-Apr-2023 14:44:32
 //
 
 // Include Files
@@ -25,32 +25,11 @@
 #include <string>
 
 // Function Declarations
-static void n_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
-
 static double rt_remd_snf(double u0, double u1);
 
-// Function Definitions
-//
-// Arguments    : const char *aFcnName
-//                int aLineNum
-// Return Type  : void
-//
-static void n_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
-{
-  std::string errMsg;
-  std::stringstream outStream;
-  outStream << "NaN values cannot be converted to logicals.";
-  outStream << "\n";
-  ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
-  if (omp_in_parallel()) {
-    errMsg = outStream.str();
-    std::fprintf(stderr, "%s", errMsg.c_str());
-    std::abort();
-  } else {
-    throw std::runtime_error(outStream.str());
-  }
-}
+static void t_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
 
+// Function Definitions
 //
 // Arguments    : double u0
 //                double u1
@@ -75,6 +54,27 @@ static double rt_remd_snf(double u0, double u1)
     y = std::fmod(u0, u1);
   }
   return y;
+}
+
+//
+// Arguments    : const char *aFcnName
+//                int aLineNum
+// Return Type  : void
+//
+static void t_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
+{
+  std::string errMsg;
+  std::stringstream outStream;
+  outStream << "NaN values cannot be converted to logicals.";
+  outStream << "\n";
+  ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
+  if (omp_in_parallel()) {
+    errMsg = outStream.str();
+    std::fprintf(stderr, "%s", errMsg.c_str());
+    std::abort();
+  } else {
+    throw std::runtime_error(outStream.str());
+  }
 }
 
 //
@@ -127,28 +127,28 @@ void psdfreqvec(double varargin_2, double varargin_4,
       "C:\\Program Files\\MATLAB\\toolbox\\shared\\siglib\\psdfreqvec.m", // pName
       0 // checkKind
   };
-  static rtDoubleCheckInfo c_emlrtDCI{
-      74,              // lineNo
-      8,               // colNo
-      "frequencygrid", // fName
-      "C:\\Program Files\\MATLAB\\toolbox\\shared\\siglib\\psdfreqvec.m", // pName
-      1 // checkKind
-  };
-  static rtDoubleCheckInfo d_emlrtDCI{
+  static rtDoubleCheckInfo b_emlrtDCI{
       80,              // lineNo
       4,               // colNo
       "frequencygrid", // fName
       "C:\\Program Files\\MATLAB\\toolbox\\shared\\siglib\\psdfreqvec.m", // pName
       1 // checkKind
   };
-  static rtDoubleCheckInfo e_emlrtDCI{
+  static rtDoubleCheckInfo c_emlrtDCI{
       78,              // lineNo
       8,               // colNo
       "frequencygrid", // fName
       "C:\\Program Files\\MATLAB\\toolbox\\shared\\siglib\\psdfreqvec.m", // pName
       1 // checkKind
   };
-  static rtRunTimeErrorInfo k_emlrtRTEI{
+  static rtDoubleCheckInfo emlrtDCI{
+      74,              // lineNo
+      8,               // colNo
+      "frequencygrid", // fName
+      "C:\\Program Files\\MATLAB\\toolbox\\shared\\siglib\\psdfreqvec.m", // pName
+      1 // checkKind
+  };
+  static rtRunTimeErrorInfo f_emlrtRTEI{
       13,              // lineNo
       "toLogicalCheck" // fName
   };
@@ -187,7 +187,7 @@ void psdfreqvec(double varargin_2, double varargin_4,
   half_res = freq_res / 2.0;
   x = rt_remd_snf(varargin_2, 2.0);
   if (std::isnan(x)) {
-    n_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+    t_rtErrorWithMessageID(f_emlrtRTEI.fName, f_emlrtRTEI.lineNo);
   }
   isNPTSodd = (x != 0.0);
   if (isNPTSodd) {
@@ -196,11 +196,11 @@ void psdfreqvec(double varargin_2, double varargin_4,
     x = varargin_2 / 2.0 + 1.0;
   }
   if (std::isnan(rt_remd_snf(x, 2.0))) {
-    n_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+    t_rtErrorWithMessageID(f_emlrtRTEI.fName, f_emlrtRTEI.lineNo);
   }
   if (isNPTSodd) {
     if (x != static_cast<int>(std::floor(x))) {
-      rtIntegerError(x, &c_emlrtDCI);
+      rtIntegerError(x, &emlrtDCI);
     }
     if ((static_cast<int>(x) < 1) || (static_cast<int>(x) > w1.size(1))) {
       rtDynamicBoundsError(static_cast<int>(x), 1, w1.size(1), &emlrtBCI);
@@ -214,7 +214,7 @@ void psdfreqvec(double varargin_2, double varargin_4,
     w1[static_cast<int>(static_cast<unsigned int>(x))] = Nyq + half_res;
   } else {
     if (x != static_cast<int>(std::floor(x))) {
-      rtIntegerError(x, &e_emlrtDCI);
+      rtIntegerError(x, &c_emlrtDCI);
     }
     if ((static_cast<int>(x) < 1) || (static_cast<int>(x) > w1.size(1))) {
       rtDynamicBoundsError(static_cast<int>(x), 1, w1.size(1), &d_emlrtBCI);
@@ -222,7 +222,7 @@ void psdfreqvec(double varargin_2, double varargin_4,
     w1[static_cast<int>(x) - 1] = Nyq;
   }
   if (varargin_2 != static_cast<int>(std::floor(varargin_2))) {
-    rtIntegerError(varargin_2, &d_emlrtDCI);
+    rtIntegerError(varargin_2, &b_emlrtDCI);
   }
   if ((static_cast<int>(varargin_2) < 1) ||
       (static_cast<int>(varargin_2) > w1.size(1))) {

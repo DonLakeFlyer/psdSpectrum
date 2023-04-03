@@ -5,7 +5,7 @@
 // File: welch.cpp
 //
 // MATLAB Coder version            : 5.4
-// C/C++ source code generated on  : 03-Apr-2023 13:38:12
+// C/C++ source code generated on  : 03-Apr-2023 14:44:32
 //
 
 // Include Files
@@ -140,16 +140,7 @@ void welch(const ::coder::array<creal_T, 2U> &x,
           0 // checkKind
       };
   static rtDoubleCheckInfo
-      c_emlrtDCI{
-          397,                   // lineNo
-          42,                    // colNo
-          "localComputeSpectra", // fName
-          "C:\\Program "
-          "Files\\MATLAB\\toolbox\\signal\\signal\\private\\welch.m", // pName
-          1 // checkKind
-      };
-  static rtDoubleCheckInfo
-      d_emlrtDCI{
+      b_emlrtDCI{
           397,                   // lineNo
           53,                    // colNo
           "localComputeSpectra", // fName
@@ -157,7 +148,16 @@ void welch(const ::coder::array<creal_T, 2U> &x,
           "Files\\MATLAB\\toolbox\\signal\\signal\\private\\welch.m", // pName
           1 // checkKind
       };
-  static rtEqualityCheckInfo b_emlrtECI{
+  static rtDoubleCheckInfo
+      emlrtDCI{
+          397,                   // lineNo
+          42,                    // colNo
+          "localComputeSpectra", // fName
+          "C:\\Program "
+          "Files\\MATLAB\\toolbox\\signal\\signal\\private\\welch.m", // pName
+          1 // checkKind
+      };
+  static rtEqualityCheckInfo emlrtECI{
       1,                     // nDims
       404,                   // lineNo
       22,                    // colNo
@@ -245,7 +245,7 @@ void welch(const ::coder::array<creal_T, 2U> &x,
       loop_ub = 0;
     }
     if (ndbl > 2.147483647E+9) {
-      c_rtErrorWithMessageID(b_emlrtRTEI.fName, b_emlrtRTEI.lineNo);
+      rtErrorWithMessageID(emlrtRTEI.fName, emlrtRTEI.lineNo);
     }
     xStart.set_size(1, loop_ub);
     if (loop_ub > 0) {
@@ -290,7 +290,7 @@ void welch(const ::coder::array<creal_T, 2U> &x,
         i1 = 0;
       } else {
         if (xStart[ii] != static_cast<int>(std::floor(xStart[ii]))) {
-          rtIntegerError(xStart[ii], &c_emlrtDCI);
+          rtIntegerError(xStart[ii], &emlrtDCI);
         }
         i = static_cast<int>(xStart[ii]);
         if ((i < 1) || (i > x1.size(0))) {
@@ -299,7 +299,7 @@ void welch(const ::coder::array<creal_T, 2U> &x,
         }
         i--;
         if (xEnd[ii] != static_cast<int>(std::floor(xEnd[ii]))) {
-          rtIntegerError(xEnd[ii], &d_emlrtDCI);
+          rtIntegerError(xEnd[ii], &b_emlrtDCI);
         }
         i1 = static_cast<int>(xEnd[ii]);
         if ((i1 < 1) || (i1 > x1.size(0))) {
@@ -378,7 +378,7 @@ void welch(const ::coder::array<creal_T, 2U> &x,
         i1 = 0;
       } else {
         if (xStart[ii] != static_cast<int>(std::floor(xStart[ii]))) {
-          rtIntegerError(xStart[ii], &c_emlrtDCI);
+          rtIntegerError(xStart[ii], &emlrtDCI);
         }
         i = static_cast<int>(xStart[ii]);
         if ((i < 1) || (i > x1.size(0))) {
@@ -387,7 +387,7 @@ void welch(const ::coder::array<creal_T, 2U> &x,
         }
         i--;
         if (xEnd[ii] != static_cast<int>(std::floor(xEnd[ii]))) {
-          rtIntegerError(xEnd[ii], &d_emlrtDCI);
+          rtIntegerError(xEnd[ii], &b_emlrtDCI);
         }
         i1 = static_cast<int>(xEnd[ii]);
         if ((i1 < 1) || (i1 > x1.size(0))) {
@@ -466,7 +466,7 @@ void welch(const ::coder::array<creal_T, 2U> &x,
         i1 = 0;
       } else {
         if (xStart[ii] != static_cast<int>(std::floor(xStart[ii]))) {
-          rtIntegerError(xStart[ii], &c_emlrtDCI);
+          rtIntegerError(xStart[ii], &emlrtDCI);
         }
         i = static_cast<int>(xStart[ii]);
         if ((i < 1) || (i > x1.size(0))) {
@@ -475,7 +475,7 @@ void welch(const ::coder::array<creal_T, 2U> &x,
         }
         i--;
         if (xEnd[ii] != static_cast<int>(std::floor(xEnd[ii]))) {
-          rtIntegerError(xEnd[ii], &d_emlrtDCI);
+          rtIntegerError(xEnd[ii], &b_emlrtDCI);
         }
         i1 = static_cast<int>(xEnd[ii]);
         if ((i1 < 1) || (i1 > x1.size(0))) {
@@ -498,7 +498,7 @@ void welch(const ::coder::array<creal_T, 2U> &x,
       } else {
         if ((Sxx1.size(0) != Sxxk.size(0)) &&
             ((Sxx1.size(0) != 1) && (Sxxk.size(0) != 1))) {
-          emlrtDimSizeImpxCheckR2021b(Sxx1.size(0), Sxxk.size(0), &b_emlrtECI);
+          emlrtDimSizeImpxCheckR2021b(Sxx1.size(0), Sxxk.size(0), &emlrtECI);
         }
         if (Sxx1.size(0) == Sxxk.size(0)) {
           loop_ub = Sxx1.size(1);

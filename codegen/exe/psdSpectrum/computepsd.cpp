@@ -5,7 +5,7 @@
 // File: computepsd.cpp
 //
 // MATLAB Coder version            : 5.4
-// C/C++ source code generated on  : 03-Apr-2023 13:38:12
+// C/C++ source code generated on  : 03-Apr-2023 14:44:32
 //
 
 // Include Files
@@ -25,7 +25,7 @@
 #include <string>
 
 // Function Declarations
-static void y_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
+static void v_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
 
 // Function Definitions
 //
@@ -33,7 +33,7 @@ static void y_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
 //                int aLineNum
 // Return Type  : void
 //
-static void y_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
+static void v_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
 {
   std::string errMsg;
   std::stringstream outStream;
@@ -148,25 +148,25 @@ void computepsd(const ::coder::array<double, 2U> &Sxx1,
       "C:\\Program Files\\MATLAB\\toolbox\\signal\\signal\\computepsd.m", // pName
       0 // checkKind
   };
-  static rtDoubleCheckInfo c_emlrtDCI{
-      40,           // lineNo
-      27,           // colNo
-      "computepsd", // fName
-      "C:\\Program Files\\MATLAB\\toolbox\\signal\\signal\\computepsd.m", // pName
-      1 // checkKind
-  };
-  static rtDoubleCheckInfo d_emlrtDCI{
+  static rtDoubleCheckInfo b_emlrtDCI{
       44,           // lineNo
       27,           // colNo
       "computepsd", // fName
       "C:\\Program Files\\MATLAB\\toolbox\\signal\\signal\\computepsd.m", // pName
       1 // checkKind
   };
-  static rtRunTimeErrorInfo k_emlrtRTEI{
+  static rtDoubleCheckInfo emlrtDCI{
+      40,           // lineNo
+      27,           // colNo
+      "computepsd", // fName
+      "C:\\Program Files\\MATLAB\\toolbox\\signal\\signal\\computepsd.m", // pName
+      1 // checkKind
+  };
+  static rtRunTimeErrorInfo f_emlrtRTEI{
       12,     // lineNo
       "isodd" // fName
   };
-  static rtRunTimeErrorInfo l_emlrtRTEI{
+  static rtRunTimeErrorInfo g_emlrtRTEI{
       275,                  // lineNo
       "check_non_axis_size" // fName
   };
@@ -184,7 +184,7 @@ void computepsd(const ::coder::array<double, 2U> &Sxx1,
     int iv[2];
     int i1;
     if (nfft - std::trunc(nfft) != 0.0) {
-      m_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+      g_rtErrorWithMessageID(f_emlrtRTEI.fName, f_emlrtRTEI.lineNo);
     }
     if (std::isnan(nfft) || std::isinf(nfft)) {
       r = rtNaN;
@@ -223,7 +223,7 @@ void computepsd(const ::coder::array<double, 2U> &Sxx1,
         for (i1 = 0; i1 < b_loop_ub; i1++) {
           ret = static_cast<int>(b_select[i1]);
           if (b_select[i1] != ret) {
-            rtIntegerError(b_select[i1], &c_emlrtDCI);
+            rtIntegerError(b_select[i1], &emlrtDCI);
           }
           if ((ret < 1) || (ret > Sxx1.size(0))) {
             rtDynamicBoundsError(ret, 1, Sxx1.size(0), &emlrtBCI);
@@ -265,11 +265,11 @@ void computepsd(const ::coder::array<double, 2U> &Sxx1,
           }
         }
         if (guard1 && (Sxx1.size(1) != 0)) {
-          y_rtErrorWithMessageID(l_emlrtRTEI.fName, l_emlrtRTEI.lineNo);
+          v_rtErrorWithMessageID(g_emlrtRTEI.fName, g_emlrtRTEI.lineNo);
         }
       }
       if ((y.size(1) != ret) && ((y.size(0) != 0) && (y.size(1) != 0))) {
-        y_rtErrorWithMessageID(l_emlrtRTEI.fName, l_emlrtRTEI.lineNo);
+        v_rtErrorWithMessageID(g_emlrtRTEI.fName, g_emlrtRTEI.lineNo);
       }
       empty_non_axis_sizes = (ret == 0);
       if (empty_non_axis_sizes || (Sxx1.size(1) != 0)) {
@@ -325,7 +325,7 @@ void computepsd(const ::coder::array<double, 2U> &Sxx1,
         for (i1 = 0; i1 < b_loop_ub; i1++) {
           ret = static_cast<int>(b_select[i1]);
           if (b_select[i1] != ret) {
-            rtIntegerError(b_select[i1], &d_emlrtDCI);
+            rtIntegerError(b_select[i1], &b_emlrtDCI);
           }
           if ((ret < 1) || (ret > Sxx1.size(0))) {
             rtDynamicBoundsError(ret, 1, Sxx1.size(0), &d_emlrtBCI);
@@ -374,14 +374,14 @@ void computepsd(const ::coder::array<double, 2U> &Sxx1,
         }
       }
       if ((Sxx1.size(1) != ret) && (Sxx1.size(1) != 0)) {
-        y_rtErrorWithMessageID(l_emlrtRTEI.fName, l_emlrtRTEI.lineNo);
+        v_rtErrorWithMessageID(g_emlrtRTEI.fName, g_emlrtRTEI.lineNo);
       }
       if ((y.size(1) != ret) &&
           ((input_sizes_idx_0 != 0) && (Sxx1.size(1) != 0))) {
-        y_rtErrorWithMessageID(l_emlrtRTEI.fName, l_emlrtRTEI.lineNo);
+        v_rtErrorWithMessageID(g_emlrtRTEI.fName, g_emlrtRTEI.lineNo);
       }
       if ((Sxx1.size(1) != ret) && (Sxx1.size(1) != 0)) {
-        y_rtErrorWithMessageID(l_emlrtRTEI.fName, l_emlrtRTEI.lineNo);
+        v_rtErrorWithMessageID(g_emlrtRTEI.fName, g_emlrtRTEI.lineNo);
       }
       empty_non_axis_sizes = (ret == 0);
       if (empty_non_axis_sizes || (Sxx1.size(1) != 0)) {

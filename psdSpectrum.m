@@ -3,15 +3,12 @@ function psdSpectrum(Fs, centerFreqMHz, file)
     data = readairspybinfile(file);
     t = 0:1/Fs:(numel(data)-1)/Fs;
 
-    [dataFFT, fftFreqs] = centered_fft(Fs, data);
-
     windTime = 0.02;
     nWind = Fs * windTime;
-    stftFreqRes = 1/nWind * Fs;
 
     rectWind            = rectwin(nWind);
     nOverlap            = floor(0.5 * nWind);
-    [ s, fStft, tStft ] = stft(data,Fs,Window=rectWind,OverlapLength=nOverlap,FFTLength=nWind);
+    %[ s, fStft, tStft ] = stft(data,Fs,Window=rectWind,OverlapLength=nOverlap,FFTLength=nWind);
     [ pxx, f ]          = pwelch(data,rectWind,nOverlap,nWind,Fs,'centered');
 
     figure;

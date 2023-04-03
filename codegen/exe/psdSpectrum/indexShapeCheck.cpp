@@ -5,7 +5,7 @@
 // File: indexShapeCheck.cpp
 //
 // MATLAB Coder version            : 5.4
-// C/C++ source code generated on  : 03-Apr-2023 13:38:12
+// C/C++ source code generated on  : 03-Apr-2023 14:44:32
 //
 
 // Include Files
@@ -21,7 +21,7 @@
 #include <string>
 
 // Function Declarations
-static void o_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
+static void h_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
 
 // Function Definitions
 //
@@ -29,7 +29,7 @@ static void o_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
 //                int aLineNum
 // Return Type  : void
 //
-static void o_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
+static void h_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
 {
   std::string errMsg;
   std::stringstream outStream;
@@ -57,12 +57,12 @@ namespace coder {
 namespace internal {
 void indexShapeCheck(int matrixSize, const int indexSize[2])
 {
-  static rtRunTimeErrorInfo k_emlrtRTEI{
+  static rtRunTimeErrorInfo f_emlrtRTEI{
       122,          // lineNo
       "errOrWarnIf" // fName
   };
   if ((matrixSize == 1) && (indexSize[1] != 1)) {
-    o_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+    h_rtErrorWithMessageID(f_emlrtRTEI.fName, f_emlrtRTEI.lineNo);
   }
 }
 

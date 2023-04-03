@@ -5,7 +5,7 @@
 // File: psdoptions.cpp
 //
 // MATLAB Coder version            : 5.4
-// C/C++ source code generated on  : 03-Apr-2023 13:38:12
+// C/C++ source code generated on  : 03-Apr-2023 14:44:32
 //
 
 // Include Files
@@ -35,7 +35,7 @@ struct emxArray_char_T_1x15 {
   int size[2];
 };
 
-struct cell_wrap_34 {
+struct cell_wrap_21 {
   emxArray_char_T_1x15 f1;
 };
 
@@ -50,11 +50,22 @@ static void checkUniqueOpts(const double arg_data[], const int arg_size[2],
                             double *b_index);
 
 }
-static void p_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
+static void d_rtErrorWithMessageID(const char *r, const char *aFcnName,
+                                   int aLineNum);
 
-static void q_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
+static void i_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
 
-static void r_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
+static void j_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
+
+static void k_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
+
+static void l_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
+
+static void m_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
+
+static void n_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
+
+static void o_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
 
 static void rtErrorWithMessageID(const char *r, const char *r1,
                                  const std::string r2, const char *aFcnName,
@@ -62,14 +73,6 @@ static void rtErrorWithMessageID(const char *r, const char *r1,
 
 static void rtErrorWithMessageID(const std::string r, const std::string r1,
                                  const char *aFcnName, int aLineNum);
-
-static void s_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
-
-static void t_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
-
-static void u_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
-
-static void v_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
 
 // Function Definitions
 //
@@ -115,7 +118,7 @@ static void checkUniqueOpts(const double arg_data[], const int arg_size[2],
                             boolean_T *err, double visitedOpts[16],
                             double *b_index)
 {
-  static rtEqualityCheckInfo b_emlrtECI{
+  static rtEqualityCheckInfo emlrtECI{
       -1,                // nDims
       420,               // lineNo
       9,                 // colNo
@@ -296,7 +299,7 @@ static void checkUniqueOpts(const double arg_data[], const int arg_size[2],
                   guard1 = true;
                 } else {
                   if (arg_size[1] != 1) {
-                    rtSizeEq1DError(1, 0, &b_emlrtECI);
+                    rtSizeEq1DError(1, 0, &emlrtECI);
                   }
                   visitedOpts[0] = arg_data[0];
                   *b_index = 2.0;
@@ -325,12 +328,35 @@ static void checkUniqueOpts(const double arg_data[], const int arg_size[2],
 }
 
 //
-// Arguments    : const char *aFcnName
+// Arguments    : const char *r
+//                const char *aFcnName
 //                int aLineNum
 // Return Type  : void
 //
 } // namespace coder
-static void p_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
+static void d_rtErrorWithMessageID(const char *r, const char *aFcnName,
+                                   int aLineNum)
+{
+  std::string errMsg;
+  std::stringstream outStream;
+  ((outStream << "Expected ") << r) << " to be positive.";
+  outStream << "\n";
+  ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
+  if (omp_in_parallel()) {
+    errMsg = outStream.str();
+    std::fprintf(stderr, "%s", errMsg.c_str());
+    std::abort();
+  } else {
+    throw std::runtime_error(outStream.str());
+  }
+}
+
+//
+// Arguments    : const char *aFcnName
+//                int aLineNum
+// Return Type  : void
+//
+static void i_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
 {
   std::string errMsg;
   std::stringstream outStream;
@@ -351,7 +377,7 @@ static void p_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
 //                int aLineNum
 // Return Type  : void
 //
-static void q_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
+static void j_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
 {
   std::string errMsg;
   std::stringstream outStream;
@@ -372,11 +398,95 @@ static void q_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
 //                int aLineNum
 // Return Type  : void
 //
-static void r_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
+static void k_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
 {
   std::string errMsg;
   std::stringstream outStream;
   outStream << "The confidence level value is missing";
+  outStream << "\n";
+  ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
+  if (omp_in_parallel()) {
+    errMsg = outStream.str();
+    std::fprintf(stderr, "%s", errMsg.c_str());
+    std::abort();
+  } else {
+    throw std::runtime_error(outStream.str());
+  }
+}
+
+//
+// Arguments    : const char *aFcnName
+//                int aLineNum
+// Return Type  : void
+//
+static void l_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
+{
+  std::string errMsg;
+  std::stringstream outStream;
+  outStream << "Unrecognized character vector specified.";
+  outStream << "\n";
+  ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
+  if (omp_in_parallel()) {
+    errMsg = outStream.str();
+    std::fprintf(stderr, "%s", errMsg.c_str());
+    std::abort();
+  } else {
+    throw std::runtime_error(outStream.str());
+  }
+}
+
+//
+// Arguments    : const char *aFcnName
+//                int aLineNum
+// Return Type  : void
+//
+static void m_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
+{
+  std::string errMsg;
+  std::stringstream outStream;
+  outStream << "Option index out of bounds.";
+  outStream << "\n";
+  ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
+  if (omp_in_parallel()) {
+    errMsg = outStream.str();
+    std::fprintf(stderr, "%s", errMsg.c_str());
+    std::abort();
+  } else {
+    throw std::runtime_error(outStream.str());
+  }
+}
+
+//
+// Arguments    : const char *aFcnName
+//                int aLineNum
+// Return Type  : void
+//
+static void n_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
+{
+  std::string errMsg;
+  std::stringstream outStream;
+  outStream << "Ambiguous or invalid character vector option specified.";
+  outStream << "\n";
+  ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
+  if (omp_in_parallel()) {
+    errMsg = outStream.str();
+    std::fprintf(stderr, "%s", errMsg.c_str());
+    std::abort();
+  } else {
+    throw std::runtime_error(outStream.str());
+  }
+}
+
+//
+// Arguments    : const char *aFcnName
+//                int aLineNum
+// Return Type  : void
+//
+static void o_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
+{
+  std::string errMsg;
+  std::stringstream outStream;
+  outStream << "SWITCH expression must be a scalar or a character vector.";
   outStream << "\n";
   ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
   if (omp_in_parallel()) {
@@ -444,90 +554,6 @@ static void rtErrorWithMessageID(const std::string r, const std::string r1,
 }
 
 //
-// Arguments    : const char *aFcnName
-//                int aLineNum
-// Return Type  : void
-//
-static void s_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
-{
-  std::string errMsg;
-  std::stringstream outStream;
-  outStream << "Unrecognized character vector specified.";
-  outStream << "\n";
-  ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
-  if (omp_in_parallel()) {
-    errMsg = outStream.str();
-    std::fprintf(stderr, "%s", errMsg.c_str());
-    std::abort();
-  } else {
-    throw std::runtime_error(outStream.str());
-  }
-}
-
-//
-// Arguments    : const char *aFcnName
-//                int aLineNum
-// Return Type  : void
-//
-static void t_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
-{
-  std::string errMsg;
-  std::stringstream outStream;
-  outStream << "Option index out of bounds.";
-  outStream << "\n";
-  ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
-  if (omp_in_parallel()) {
-    errMsg = outStream.str();
-    std::fprintf(stderr, "%s", errMsg.c_str());
-    std::abort();
-  } else {
-    throw std::runtime_error(outStream.str());
-  }
-}
-
-//
-// Arguments    : const char *aFcnName
-//                int aLineNum
-// Return Type  : void
-//
-static void u_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
-{
-  std::string errMsg;
-  std::stringstream outStream;
-  outStream << "Ambiguous or invalid character vector option specified.";
-  outStream << "\n";
-  ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
-  if (omp_in_parallel()) {
-    errMsg = outStream.str();
-    std::fprintf(stderr, "%s", errMsg.c_str());
-    std::abort();
-  } else {
-    throw std::runtime_error(outStream.str());
-  }
-}
-
-//
-// Arguments    : const char *aFcnName
-//                int aLineNum
-// Return Type  : void
-//
-static void v_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
-{
-  std::string errMsg;
-  std::stringstream outStream;
-  outStream << "SWITCH expression must be a scalar or a character vector.";
-  outStream << "\n";
-  ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
-  if (omp_in_parallel()) {
-    errMsg = outStream.str();
-    std::fprintf(stderr, "%s", errMsg.c_str());
-    std::abort();
-  } else {
-    throw std::runtime_error(outStream.str());
-  }
-}
-
-//
 // Arguments    : char options_range[8]
 //                double varargin_1
 //                double varargin_2
@@ -547,19 +573,23 @@ void psdoptions(char options_range[8], double varargin_1, double varargin_2,
                 boolean_T *options1_minhold, boolean_T *options1_centerdc,
                 char options1_range[8])
 {
-  static rtRunTimeErrorInfo k_emlrtRTEI{
-      131,                 // lineNo
-      "fullValidatestring" // fName
-  };
-  static rtRunTimeErrorInfo l_emlrtRTEI{
+  static rtRunTimeErrorInfo f_emlrtRTEI{
       366,                // lineNo
       "ConstructErrorObj" // fName
   };
-  static rtRunTimeErrorInfo m_emlrtRTEI{
+  static rtRunTimeErrorInfo g_emlrtRTEI{
+      14,                // lineNo
+      "validatepositive" // fName
+  };
+  static rtRunTimeErrorInfo h_emlrtRTEI{
+      131,                 // lineNo
+      "fullValidatestring" // fName
+  };
+  static rtRunTimeErrorInfo i_emlrtRTEI{
       87,                       // lineNo
       "check_switch_expression" // fName
   };
-  static rtRunTimeErrorInfo n_emlrtRTEI{
+  static rtRunTimeErrorInfo j_emlrtRTEI{
       139,                 // lineNo
       "fullValidatestring" // fName
   };
@@ -574,23 +604,23 @@ void psdoptions(char options_range[8], double varargin_1, double varargin_2,
   static const char strOpts_f7[5]{'e', 'i', 'g', 'e', 'n'};
   static const char b_b[3]{'o', 'n', 'e'};
   static const char c_b[3]{'t', 'w', 'o'};
-  cell_28 inputArgs;
-  cell_wrap_34 exclusiveOpts[14];
-  cell_wrap_34 rv[14];
-  cell_wrap_34 r;
-  cell_wrap_34 r1;
-  cell_wrap_34 r10;
-  cell_wrap_34 r11;
-  cell_wrap_34 r12;
-  cell_wrap_34 r13;
-  cell_wrap_34 r2;
-  cell_wrap_34 r3;
-  cell_wrap_34 r4;
-  cell_wrap_34 r5;
-  cell_wrap_34 r6;
-  cell_wrap_34 r7;
-  cell_wrap_34 r8;
-  cell_wrap_34 r9;
+  cell_9 inputArgs;
+  cell_wrap_21 exclusiveOpts[14];
+  cell_wrap_21 rv[14];
+  cell_wrap_21 r;
+  cell_wrap_21 r1;
+  cell_wrap_21 r10;
+  cell_wrap_21 r11;
+  cell_wrap_21 r12;
+  cell_wrap_21 r13;
+  cell_wrap_21 r2;
+  cell_wrap_21 r3;
+  cell_wrap_21 r4;
+  cell_wrap_21 r5;
+  cell_wrap_21 r6;
+  cell_wrap_21 r7;
+  cell_wrap_21 r8;
+  cell_wrap_21 r9;
   double b_index;
   int arg2_size[2];
   int arg_size[2];
@@ -738,7 +768,7 @@ void psdoptions(char options_range[8], double varargin_1, double varargin_2,
                                            exclusiveOpts[ret].f1.size[1]),
                                std::string(&exclusiveOpts[ret + 7].f1.data[0],
                                            exclusiveOpts[ret + 7].f1.size[1]),
-                               l_emlrtRTEI.fName, l_emlrtRTEI.lineNo);
+                               f_emlrtRTEI.fName, f_emlrtRTEI.lineNo);
         } else {
           b_guard1 = true;
         }
@@ -759,7 +789,7 @@ void psdoptions(char options_range[8], double varargin_1, double varargin_2,
       boolean_T exitg2;
       boolean_T guard2{false};
       if (varargin_2 <= 0.0) {
-        g_rtErrorWithMessageID("fs", j_emlrtRTEI.fName, j_emlrtRTEI.lineNo);
+        d_rtErrorWithMessageID("fs", g_emlrtRTEI.fName, g_emlrtRTEI.lineNo);
       }
       for (k = 0; k < 8; k++) {
         b_y1[k] = cv[static_cast<int>(varargin_3[k])];
@@ -816,8 +846,8 @@ void psdoptions(char options_range[8], double varargin_1, double varargin_2,
             "\'psd\', \'ms\', \'reassigned\'"
             ", \'confidencelevel\', \'mean\', \'maxhold\', \'minhold\', "
             "\'mimo\'",
-            std::string(&tmp_data[0], arg2_size[1] + 5), k_emlrtRTEI.fName,
-            k_emlrtRTEI.lineNo);
+            std::string(&tmp_data[0], arg2_size[1] + 5), h_emlrtRTEI.fName,
+            h_emlrtRTEI.lineNo);
       } else if (ret > 1) {
         tmp_data[0] = ',';
         tmp_data[1] = ' ';
@@ -833,8 +863,8 @@ void psdoptions(char options_range[8], double varargin_1, double varargin_2,
             "\'psd\', \'ms\', \'reassigned\'"
             ", \'confidencelevel\', \'mean\', \'maxhold\', \'minhold\', "
             "\'mimo\'",
-            std::string(&tmp_data[0], arg2_size[1] + 5), n_emlrtRTEI.fName,
-            n_emlrtRTEI.lineNo);
+            std::string(&tmp_data[0], arg2_size[1] + 5), j_emlrtRTEI.fName,
+            j_emlrtRTEI.lineNo);
       } else {
         arg_size[0] = 1;
         arg_size[1] = partial_match_size[1];
@@ -872,12 +902,12 @@ void psdoptions(char options_range[8], double varargin_1, double varargin_2,
         c_i_data[ret] = b_i_data[ret];
       }
       if (k > 1) {
-        u_rtErrorWithMessageID(l_emlrtRTEI.fName, l_emlrtRTEI.lineNo);
+        n_rtErrorWithMessageID(f_emlrtRTEI.fName, f_emlrtRTEI.lineNo);
       } else {
         int exitg3;
         int exitg5;
         if (k != 1) {
-          v_rtErrorWithMessageID(m_emlrtRTEI.fName, m_emlrtRTEI.lineNo);
+          o_rtErrorWithMessageID(i_emlrtRTEI.fName, i_emlrtRTEI.lineNo);
         }
         ret = 0;
         do {
@@ -973,7 +1003,7 @@ void psdoptions(char options_range[8], double varargin_1, double varargin_2,
           double visitedOpts[16];
           checkUniqueOpts(c_i_data, i_size, &i_data, visitedOpts, &b_index);
           if (i_data) {
-            q_rtErrorWithMessageID(l_emlrtRTEI.fName, l_emlrtRTEI.lineNo);
+            j_rtErrorWithMessageID(f_emlrtRTEI.fName, f_emlrtRTEI.lineNo);
           } else {
             b_i_size[0] = 1;
             b_i_size[1] = 1;
@@ -1015,26 +1045,26 @@ void psdoptions(char options_range[8], double varargin_1, double varargin_2,
               }
             } while (exitg3 == 0);
             if (i_data) {
-              p_rtErrorWithMessageID(l_emlrtRTEI.fName, l_emlrtRTEI.lineNo);
+              i_rtErrorWithMessageID(f_emlrtRTEI.fName, f_emlrtRTEI.lineNo);
             } else {
               guard1 = true;
             }
           }
         } break;
         case 1:
-          s_rtErrorWithMessageID(l_emlrtRTEI.fName, l_emlrtRTEI.lineNo);
+          l_rtErrorWithMessageID(f_emlrtRTEI.fName, f_emlrtRTEI.lineNo);
           break;
         case 2:
-          s_rtErrorWithMessageID(l_emlrtRTEI.fName, l_emlrtRTEI.lineNo);
+          l_rtErrorWithMessageID(f_emlrtRTEI.fName, f_emlrtRTEI.lineNo);
           break;
         case 3:
-          s_rtErrorWithMessageID(l_emlrtRTEI.fName, l_emlrtRTEI.lineNo);
+          l_rtErrorWithMessageID(f_emlrtRTEI.fName, f_emlrtRTEI.lineNo);
           break;
         case 4: {
           double visitedOpts[16];
           checkUniqueOpts(c_i_data, i_size, &i_data, visitedOpts, &b_index);
           if (i_data) {
-            q_rtErrorWithMessageID(l_emlrtRTEI.fName, l_emlrtRTEI.lineNo);
+            j_rtErrorWithMessageID(f_emlrtRTEI.fName, f_emlrtRTEI.lineNo);
           } else {
             options_centerdc = true;
             guard1 = true;
@@ -1047,13 +1077,13 @@ void psdoptions(char options_range[8], double varargin_1, double varargin_2,
           double visitedOpts[16];
           checkUniqueOpts(c_i_data, i_size, &i_data, visitedOpts, &b_index);
           if (i_data) {
-            q_rtErrorWithMessageID(l_emlrtRTEI.fName, l_emlrtRTEI.lineNo);
+            j_rtErrorWithMessageID(f_emlrtRTEI.fName, f_emlrtRTEI.lineNo);
           } else {
-            r_rtErrorWithMessageID(l_emlrtRTEI.fName, l_emlrtRTEI.lineNo);
+            k_rtErrorWithMessageID(f_emlrtRTEI.fName, f_emlrtRTEI.lineNo);
           }
         } break;
         default:
-          t_rtErrorWithMessageID(l_emlrtRTEI.fName, l_emlrtRTEI.lineNo);
+          m_rtErrorWithMessageID(f_emlrtRTEI.fName, f_emlrtRTEI.lineNo);
           break;
         }
       }

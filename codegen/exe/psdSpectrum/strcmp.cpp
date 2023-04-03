@@ -5,7 +5,7 @@
 // File: strcmp.cpp
 //
 // MATLAB Coder version            : 5.4
-// C/C++ source code generated on  : 03-Apr-2023 13:38:12
+// C/C++ source code generated on  : 03-Apr-2023 14:44:32
 //
 
 // Include Files
@@ -19,13 +19,13 @@
 //
 // Arguments    : const char a_data[]
 //                const int a_size[2]
-//                const cell_28 b
+//                const cell_9 b
 //                boolean_T b_bool[3]
 // Return Type  : void
 //
 namespace coder {
 namespace internal {
-void b_strcmp(const char a_data[], const int a_size[2], const cell_28 b,
+void b_strcmp(const char a_data[], const int a_size[2], const cell_9 b,
               boolean_T b_bool[3])
 {
   b_bool[0] = false;

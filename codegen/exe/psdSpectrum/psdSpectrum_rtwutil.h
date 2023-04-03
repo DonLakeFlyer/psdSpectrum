@@ -5,7 +5,7 @@
 // File: psdSpectrum_rtwutil.h
 //
 // MATLAB Coder version            : 5.4
-// C/C++ source code generated on  : 03-Apr-2023 13:38:12
+// C/C++ source code generated on  : 03-Apr-2023 14:44:32
 //
 
 #ifndef PSDSPECTRUM_RTWUTIL_H
@@ -18,21 +18,19 @@
 #include <string>
 
 // Type Declarations
-struct rtBoundsCheckInfo;
-
 struct rtEqualityCheckInfo;
+
+struct rtBoundsCheckInfo;
 
 struct rtDoubleCheckInfo;
 
 // Function Declarations
-extern void b_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
-
-extern void c_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
-
-extern void d_rtErrorWithMessageID(const char *r, const char *aFcnName,
+extern void c_rtErrorWithMessageID(const char *r, const char *aFcnName,
                                    int aLineNum);
 
 extern int div_s32(int numerator, int denominator);
+
+extern void e_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
 
 extern void e_rtErrorWithMessageID(const char *r, const char *aFcnName,
                                    int aLineNum);
@@ -40,24 +38,16 @@ extern void e_rtErrorWithMessageID(const char *r, const char *aFcnName,
 extern void emlrtDimSizeImpxCheckR2021b(const int aDim1, const int aDim2,
                                         const rtEqualityCheckInfo *aInfo);
 
-extern void f_rtErrorWithMessageID(const char *r, const char *aFcnName,
-                                   int aLineNum);
-
 extern void f_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
 
-extern void g_rtErrorWithMessageID(const char *r, const char *aFcnName,
-                                   int aLineNum);
-
 extern void g_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
-
-extern void j_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
-
-extern void m_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
 
 extern void rtDivisionByZeroErrorN();
 
 extern void rtDynamicBoundsError(int aIndexValue, int aLoBound, int aHiBound,
                                  const rtBoundsCheckInfo *aInfo);
+
+extern void rtErrorWithMessageID(const char *aFcnName, int aLineNum);
 
 extern std::string rtGenSizeString(const int aNDims, const int *aDims);
 

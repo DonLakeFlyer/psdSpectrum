@@ -5,7 +5,7 @@
 // File: log10.cpp
 //
 // MATLAB Coder version            : 5.4
-// C/C++ source code generated on  : 03-Apr-2023 13:38:12
+// C/C++ source code generated on  : 03-Apr-2023 14:44:32
 //
 
 // Include Files
@@ -24,7 +24,7 @@
 #include <string>
 
 // Function Declarations
-static void k_rtErrorWithMessageID(const char *r, const char *aFcnName,
+static void i_rtErrorWithMessageID(const char *r, const char *aFcnName,
                                    int aLineNum);
 
 // Function Definitions
@@ -34,7 +34,7 @@ static void k_rtErrorWithMessageID(const char *r, const char *aFcnName,
 //                int aLineNum
 // Return Type  : void
 //
-static void k_rtErrorWithMessageID(const char *r, const char *aFcnName,
+static void i_rtErrorWithMessageID(const char *r, const char *aFcnName,
                                    int aLineNum)
 {
   std::string errMsg;
@@ -60,7 +60,7 @@ static void k_rtErrorWithMessageID(const char *r, const char *aFcnName,
 namespace coder {
 void b_log10(::coder::array<double, 2U> &x)
 {
-  static rtRunTimeErrorInfo k_emlrtRTEI{
+  static rtRunTimeErrorInfo f_emlrtRTEI{
       14,     // lineNo
       "log10" // fName
   };
@@ -74,7 +74,7 @@ void b_log10(::coder::array<double, 2U> &x)
     }
   }
   if (p) {
-    k_rtErrorWithMessageID("log10", k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+    i_rtErrorWithMessageID("log10", f_emlrtRTEI.fName, f_emlrtRTEI.lineNo);
   }
   nx = x.size(0) * x.size(1);
   if (nx > 2147483646) {

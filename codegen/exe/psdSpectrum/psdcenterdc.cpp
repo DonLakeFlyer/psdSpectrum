@@ -5,7 +5,7 @@
 // File: psdcenterdc.cpp
 //
 // MATLAB Coder version            : 5.4
-// C/C++ source code generated on  : 03-Apr-2023 13:38:12
+// C/C++ source code generated on  : 03-Apr-2023 14:44:32
 //
 
 // Include Files
@@ -248,16 +248,7 @@ void psdcenterdc(::coder::array<double, 2U> &Pxx,
       "spectral\\psdcenterdc.m", // pName
       0                          // checkKind
   };
-  static rtDoubleCheckInfo c_emlrtDCI{
-      55,            // lineNo
-      12,            // colNo
-      "psdcenterdc", // fName
-      "C:\\Program "
-      "Files\\MATLAB\\toolbox\\signal\\signal\\+signal\\+internal\\+"
-      "spectral\\psdcenterdc.m", // pName
-      1                          // checkKind
-  };
-  static rtDoubleCheckInfo d_emlrtDCI{
+  static rtDoubleCheckInfo b_emlrtDCI{
       74,            // lineNo
       8,             // colNo
       "psdcenterdc", // fName
@@ -266,7 +257,7 @@ void psdcenterdc(::coder::array<double, 2U> &Pxx,
       "spectral\\psdcenterdc.m", // pName
       1                          // checkKind
   };
-  static rtDoubleCheckInfo e_emlrtDCI{
+  static rtDoubleCheckInfo c_emlrtDCI{
       74,            // lineNo
       26,            // colNo
       "psdcenterdc", // fName
@@ -275,7 +266,7 @@ void psdcenterdc(::coder::array<double, 2U> &Pxx,
       "spectral\\psdcenterdc.m", // pName
       1                          // checkKind
   };
-  static rtDoubleCheckInfo f_emlrtDCI{
+  static rtDoubleCheckInfo d_emlrtDCI{
       76,            // lineNo
       8,             // colNo
       "psdcenterdc", // fName
@@ -284,7 +275,7 @@ void psdcenterdc(::coder::array<double, 2U> &Pxx,
       "spectral\\psdcenterdc.m", // pName
       1                          // checkKind
   };
-  static rtDoubleCheckInfo g_emlrtDCI{
+  static rtDoubleCheckInfo e_emlrtDCI{
       76,            // lineNo
       28,            // colNo
       "psdcenterdc", // fName
@@ -293,16 +284,16 @@ void psdcenterdc(::coder::array<double, 2U> &Pxx,
       "spectral\\psdcenterdc.m", // pName
       1                          // checkKind
   };
-  static rtEqualityCheckInfo b_emlrtECI{
-      -1,            // nDims
-      31,            // lineNo
-      7,             // colNo
+  static rtDoubleCheckInfo emlrtDCI{
+      55,            // lineNo
+      12,            // colNo
       "psdcenterdc", // fName
       "C:\\Program "
       "Files\\MATLAB\\toolbox\\signal\\signal\\+signal\\+internal\\+"
-      "spectral\\psdcenterdc.m" // pName
+      "spectral\\psdcenterdc.m", // pName
+      1                          // checkKind
   };
-  static rtEqualityCheckInfo c_emlrtECI{
+  static rtEqualityCheckInfo b_emlrtECI{
       -1,            // nDims
       33,            // lineNo
       9,             // colNo
@@ -311,7 +302,7 @@ void psdcenterdc(::coder::array<double, 2U> &Pxx,
       "Files\\MATLAB\\toolbox\\signal\\signal\\+signal\\+internal\\+"
       "spectral\\psdcenterdc.m" // pName
   };
-  static rtEqualityCheckInfo d_emlrtECI{
+  static rtEqualityCheckInfo c_emlrtECI{
       -1,            // nDims
       72,            // lineNo
       3,             // colNo
@@ -320,7 +311,7 @@ void psdcenterdc(::coder::array<double, 2U> &Pxx,
       "Files\\MATLAB\\toolbox\\signal\\signal\\+signal\\+internal\\+"
       "spectral\\psdcenterdc.m" // pName
   };
-  static rtEqualityCheckInfo e_emlrtECI{
+  static rtEqualityCheckInfo d_emlrtECI{
       -1,            // nDims
       74,            // lineNo
       3,             // colNo
@@ -329,7 +320,7 @@ void psdcenterdc(::coder::array<double, 2U> &Pxx,
       "Files\\MATLAB\\toolbox\\signal\\signal\\+signal\\+internal\\+"
       "spectral\\psdcenterdc.m" // pName
   };
-  static rtEqualityCheckInfo f_emlrtECI{
+  static rtEqualityCheckInfo e_emlrtECI{
       -1,            // nDims
       76,            // lineNo
       3,             // colNo
@@ -338,7 +329,16 @@ void psdcenterdc(::coder::array<double, 2U> &Pxx,
       "Files\\MATLAB\\toolbox\\signal\\signal\\+signal\\+internal\\+"
       "spectral\\psdcenterdc.m" // pName
   };
-  static rtEqualityCheckInfo g_emlrtECI{
+  static rtEqualityCheckInfo emlrtECI{
+      -1,            // nDims
+      31,            // lineNo
+      7,             // colNo
+      "psdcenterdc", // fName
+      "C:\\Program "
+      "Files\\MATLAB\\toolbox\\signal\\signal\\+signal\\+internal\\+"
+      "spectral\\psdcenterdc.m" // pName
+  };
+  static rtEqualityCheckInfo f_emlrtECI{
       -1,            // nDims
       40,            // lineNo
       7,             // colNo
@@ -347,7 +347,7 @@ void psdcenterdc(::coder::array<double, 2U> &Pxx,
       "Files\\MATLAB\\toolbox\\signal\\signal\\+signal\\+internal\\+"
       "spectral\\psdcenterdc.m" // pName
   };
-  static rtEqualityCheckInfo h_emlrtECI{
+  static rtEqualityCheckInfo g_emlrtECI{
       -1,            // nDims
       42,            // lineNo
       9,             // colNo
@@ -443,7 +443,7 @@ void psdcenterdc(::coder::array<double, 2U> &Pxx,
         }
         iv[0] = i3 - i2;
         iv[1] = Pxx.size(1);
-        rtSubAssignSizeCheck(&iv[0], 2, r.size(), 2, &b_emlrtECI);
+        rtSubAssignSizeCheck(&iv[0], 2, r.size(), 2, &emlrtECI);
         kstr = r.size(1);
         for (i = 0; i < kstr; i++) {
           loop_ub = r.size(0);
@@ -490,7 +490,7 @@ void psdcenterdc(::coder::array<double, 2U> &Pxx,
           }
           iv[0] = i3 - i2;
           iv[1] = Pxxc.size(1);
-          rtSubAssignSizeCheck(&iv[0], 2, r.size(), 2, &c_emlrtECI);
+          rtSubAssignSizeCheck(&iv[0], 2, r.size(), 2, &b_emlrtECI);
           kstr = r.size(1);
           loop_ub = r.size(0);
           for (i = 0; i < kstr; i++) {
@@ -541,7 +541,7 @@ void psdcenterdc(::coder::array<double, 2U> &Pxx,
         }
         iv[0] = i3 - i2;
         iv[1] = Pxx.size(1);
-        rtSubAssignSizeCheck(&iv[0], 2, r.size(), 2, &g_emlrtECI);
+        rtSubAssignSizeCheck(&iv[0], 2, r.size(), 2, &f_emlrtECI);
         kstr = r.size(1);
         for (i = 0; i < kstr; i++) {
           loop_ub = r.size(0);
@@ -572,7 +572,7 @@ void psdcenterdc(::coder::array<double, 2U> &Pxx,
           }
           iv[0] = i3 - i2;
           iv[1] = Pxxc.size(1);
-          rtSubAssignSizeCheck(&iv[0], 2, r1.size(), 2, &h_emlrtECI);
+          rtSubAssignSizeCheck(&iv[0], 2, r1.size(), 2, &g_emlrtECI);
           kstr = r1.size(1);
           loop_ub = r1.size(0);
           for (i = 0; i < kstr; i++) {
@@ -658,7 +658,7 @@ void psdcenterdc(::coder::array<double, 2U> &Pxx,
       loop_ub = Pxx1_tmp.size(0);
       for (i1 = 0; i1 < loop_ub; i1++) {
         if (Pxx1_tmp[i1] != static_cast<int>(std::floor(Pxx1_tmp[i1]))) {
-          rtIntegerError(Pxx1_tmp[i1], &c_emlrtDCI);
+          rtIntegerError(Pxx1_tmp[i1], &emlrtDCI);
         }
         i2 = static_cast<int>(Pxx1_tmp[i1]);
         if ((i2 < 1) || (i2 > Pxx.size(0))) {
@@ -726,7 +726,7 @@ void psdcenterdc(::coder::array<double, 2U> &Pxx,
         Pxx1_tmp[i] = -F1[i];
       }
       if (loop_ub != Pxx1_tmp.size(0)) {
-        rtSizeEq1DError(loop_ub, Pxx1_tmp.size(0), &d_emlrtECI);
+        rtSizeEq1DError(loop_ub, Pxx1_tmp.size(0), &c_emlrtECI);
       }
       for (i = 0; i < loop_ub; i++) {
         F1[i] = Pxx1_tmp[i];
@@ -737,7 +737,7 @@ void psdcenterdc(::coder::array<double, 2U> &Pxx,
         i = 0;
       } else {
         if (a != std::floor(a)) {
-          rtIntegerError(a, &e_emlrtDCI);
+          rtIntegerError(a, &c_emlrtDCI);
         }
         if (static_cast<int>(a) > idx.size(1)) {
           rtDynamicBoundsError(static_cast<int>(a), 1, idx.size(1),
@@ -753,7 +753,7 @@ void psdcenterdc(::coder::array<double, 2U> &Pxx,
         kstr = 0;
       } else {
         if (a != std::floor(a)) {
-          rtIntegerError(a, &d_emlrtDCI);
+          rtIntegerError(a, &b_emlrtDCI);
         }
         if (static_cast<int>(a) > idx.size(1)) {
           rtDynamicBoundsError(static_cast<int>(a), 1, idx.size(1),
@@ -762,7 +762,7 @@ void psdcenterdc(::coder::array<double, 2U> &Pxx,
         kstr = static_cast<int>(a);
       }
       if (kstr != i) {
-        rtSizeEq1DError(kstr, i, &e_emlrtECI);
+        rtSizeEq1DError(kstr, i, &d_emlrtECI);
       }
       y.set_size(1, kstr);
       for (i = 0; i < kstr; i++) {
@@ -778,7 +778,7 @@ void psdcenterdc(::coder::array<double, 2U> &Pxx,
         i = 0;
       } else {
         if (a != std::floor(a)) {
-          rtIntegerError(a, &g_emlrtDCI);
+          rtIntegerError(a, &e_emlrtDCI);
         }
         if (static_cast<int>(a) > idx.size(1)) {
           rtDynamicBoundsError(static_cast<int>(a), 1, idx.size(1),
@@ -794,7 +794,7 @@ void psdcenterdc(::coder::array<double, 2U> &Pxx,
         kstr = 0;
       } else {
         if (a != std::floor(a)) {
-          rtIntegerError(a, &f_emlrtDCI);
+          rtIntegerError(a, &d_emlrtDCI);
         }
         if (static_cast<int>(a) > idx.size(1)) {
           rtDynamicBoundsError(static_cast<int>(a), 1, idx.size(1),
@@ -803,7 +803,7 @@ void psdcenterdc(::coder::array<double, 2U> &Pxx,
         kstr = static_cast<int>(a);
       }
       if (kstr != i) {
-        rtSizeEq1DError(kstr, i, &f_emlrtECI);
+        rtSizeEq1DError(kstr, i, &e_emlrtECI);
       }
       y.set_size(1, kstr);
       for (i = 0; i < kstr; i++) {

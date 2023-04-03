@@ -5,7 +5,7 @@
 // File: fileManager.cpp
 //
 // MATLAB Coder version            : 5.4
-// C/C++ source code generated on  : 03-Apr-2023 13:38:12
+// C/C++ source code generated on  : 03-Apr-2023 14:44:32
 //
 
 // Include Files
@@ -26,13 +26,36 @@
 #include <string>
 
 // Function Declarations
+static void cb_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
+
 namespace coder {
 static signed char filedata();
 
 }
-static void gb_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
 
 // Function Definitions
+//
+// Arguments    : const char *aFcnName
+//                int aLineNum
+// Return Type  : void
+//
+static void cb_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
+{
+  std::string errMsg;
+  std::stringstream outStream;
+  ((outStream << "For code generation, maximum number of open files is ") << 20)
+      << ".";
+  outStream << "\n";
+  ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
+  if (omp_in_parallel()) {
+    errMsg = outStream.str();
+    std::fprintf(stderr, "%s", errMsg.c_str());
+    std::abort();
+  } else {
+    throw std::runtime_error(outStream.str());
+  }
+}
+
 //
 // Arguments    : void
 // Return Type  : signed char
@@ -58,36 +81,16 @@ static signed char filedata()
 }
 
 //
-// Arguments    : const char *aFcnName
-//                int aLineNum
-// Return Type  : void
-//
-} // namespace coder
-static void gb_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
-{
-  std::string errMsg;
-  std::stringstream outStream;
-  ((outStream << "For code generation, maximum number of open files is ") << 20)
-      << ".";
-  outStream << "\n";
-  ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
-  if (omp_in_parallel()) {
-    errMsg = outStream.str();
-    std::fprintf(stderr, "%s", errMsg.c_str());
-    std::abort();
-  } else {
-    throw std::runtime_error(outStream.str());
-  }
-}
-
-//
 // Arguments    : double fid
 // Return Type  : int
 //
-namespace coder {
 int cfclose(double fid)
 {
-  static rtRunTimeErrorInfo k_emlrtRTEI{
+  static rtRunTimeErrorInfo f_emlrtRTEI{
+      292,                    // lineNo
+      "cast_and_validate_fid" // fName
+  };
+  static rtRunTimeErrorInfo g_emlrtRTEI{
       165,                // lineNo
       "conditionalAssert" // fName
   };
@@ -97,19 +100,19 @@ int cfclose(double fid)
   signed char fileid;
   st = -1;
   if (fid < 0.0) {
-    f_rtErrorWithMessageID(e_emlrtRTEI.fName, e_emlrtRTEI.lineNo);
+    e_rtErrorWithMessageID(c_emlrtRTEI.fName, c_emlrtRTEI.lineNo);
   }
   fileid = static_cast<signed char>(std::round(fid));
   if (fid != fileid) {
-    f_rtErrorWithMessageID(d_emlrtRTEI.fName, d_emlrtRTEI.lineNo);
+    e_rtErrorWithMessageID(f_emlrtRTEI.fName, f_emlrtRTEI.lineNo);
   }
   if (static_cast<int>(fid) != fileid) {
-    f_rtErrorWithMessageID(e_emlrtRTEI.fName, e_emlrtRTEI.lineNo);
+    e_rtErrorWithMessageID(c_emlrtRTEI.fName, c_emlrtRTEI.lineNo);
   }
   if (fileid >= 3) {
     filestar = eml_openfiles[fileid - 3];
     if (eml_openfiles[fileid - 3] == NULL) {
-      g_rtErrorWithMessageID(c_emlrtRTEI.fName, c_emlrtRTEI.lineNo);
+      f_rtErrorWithMessageID(b_emlrtRTEI.fName, b_emlrtRTEI.lineNo);
     }
   } else if (fileid == 0) {
     filestar = stdin;
@@ -119,7 +122,7 @@ int cfclose(double fid)
     filestar = stderr;
   }
   if ((!(filestar != NULL)) || (fileid < 3)) {
-    f_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+    e_rtErrorWithMessageID(g_emlrtRTEI.fName, g_emlrtRTEI.lineNo);
   }
   cst = fclose(filestar);
   if (cst == 0) {
@@ -135,7 +138,7 @@ int cfclose(double fid)
 //
 signed char cfopen(const ::coder::array<char, 2U> &cfilename)
 {
-  static rtRunTimeErrorInfo k_emlrtRTEI{
+  static rtRunTimeErrorInfo f_emlrtRTEI{
       111,     // lineNo
       "cfopen" // fName
   };
@@ -145,7 +148,7 @@ signed char cfopen(const ::coder::array<char, 2U> &cfilename)
   fileid = -1;
   j = filedata();
   if (j < 1) {
-    gb_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+    cb_rtErrorWithMessageID(f_emlrtRTEI.fName, f_emlrtRTEI.lineNo);
   } else {
     FILE *filestar;
     int i;

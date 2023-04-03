@@ -5,7 +5,7 @@
 // File: psdSpectrum_data.cpp
 //
 // MATLAB Coder version            : 5.4
-// C/C++ source code generated on  : 03-Apr-2023 13:38:12
+// C/C++ source code generated on  : 03-Apr-2023 14:44:32
 //
 
 // Include Files
@@ -20,73 +20,28 @@ FILE *eml_openfiles[20];
 omp_nest_lock_t psdSpectrum_nestLockGlobal;
 
 rtRunTimeErrorInfo emlrtRTEI{
-    37,   // lineNo
-    "fft" // fName
-};
-
-rtRunTimeErrorInfo b_emlrtRTEI{
     419,              // lineNo
     "assert_pmaxsize" // fName
 };
 
-rtRunTimeErrorInfo c_emlrtRTEI{
+rtRunTimeErrorInfo b_emlrtRTEI{
     144,          // lineNo
     "getfilestar" // fName
 };
 
-rtRunTimeErrorInfo d_emlrtRTEI{
-    292,                    // lineNo
-    "cast_and_validate_fid" // fName
-};
-
-rtRunTimeErrorInfo e_emlrtRTEI{
+rtRunTimeErrorInfo c_emlrtRTEI{
     288,                    // lineNo
     "cast_and_validate_fid" // fName
 };
 
-rtEqualityCheckInfo
-    emlrtECI{
-        -1,                 // nDims
-        85,                 // lineNo
-        9,                  // colNo
-        "computeDFTviaFFT", // fName
-        "C:\\Program "
-        "Files\\MATLAB\\toolbox\\signal\\signal\\private\\computeDFT.m" // pName
-    };
-
-rtRunTimeErrorInfo f_emlrtRTEI{
-    53,      // lineNo
-    "bsxfun" // fName
-};
-
-rtDoubleCheckInfo
-    b_emlrtDCI{
-        81,                 // lineNo
-        1,                  // colNo
-        "computeDFTviaFFT", // fName
-        "C:\\Program "
-        "Files\\MATLAB\\toolbox\\signal\\signal\\private\\computeDFT.m", // pName
-        1 // checkKind
-    };
-
-rtRunTimeErrorInfo g_emlrtRTEI{
-    14,                   // lineNo
-    "validatenonnegative" // fName
-};
-
-rtRunTimeErrorInfo h_emlrtRTEI{
-    14,              // lineNo
-    "validatenonnan" // fName
-};
-
-rtRunTimeErrorInfo i_emlrtRTEI{
+rtRunTimeErrorInfo d_emlrtRTEI{
     14,              // lineNo
     "validatefinite" // fName
 };
 
-rtRunTimeErrorInfo j_emlrtRTEI{
-    14,                // lineNo
-    "validatepositive" // fName
+rtRunTimeErrorInfo e_emlrtRTEI{
+    14,              // lineNo
+    "validatenonnan" // fName
 };
 
 const char cv[128]{

@@ -5,7 +5,7 @@
 // File: hamming.cpp
 //
 // MATLAB Coder version            : 5.4
-// C/C++ source code generated on  : 03-Apr-2023 13:38:12
+// C/C++ source code generated on  : 03-Apr-2023 14:44:32
 //
 
 // Include Files
@@ -18,10 +18,43 @@
 #include "psdSpectrum_types.h"
 #include "rt_nonfinite.h"
 #include "coder_array.h"
+#include "omp.h"
 #include <cmath>
+#include <cstdio>
+#include <cstdlib>
+#include <sstream>
+#include <stdexcept>
 #include <string.h>
+#include <string>
+
+// Function Declarations
+static void b_rtErrorWithMessageID(const char *r, const char *aFcnName,
+                                   int aLineNum);
 
 // Function Definitions
+//
+// Arguments    : const char *r
+//                const char *aFcnName
+//                int aLineNum
+// Return Type  : void
+//
+static void b_rtErrorWithMessageID(const char *r, const char *aFcnName,
+                                   int aLineNum)
+{
+  std::string errMsg;
+  std::stringstream outStream;
+  ((outStream << "Expected ") << r) << " to be nonnegative.";
+  outStream << "\n";
+  ((((outStream << "Error in ") << aFcnName) << " (line ") << aLineNum) << ")";
+  if (omp_in_parallel()) {
+    errMsg = outStream.str();
+    std::fprintf(stderr, "%s", errMsg.c_str());
+    std::abort();
+  } else {
+    throw std::runtime_error(outStream.str());
+  }
+}
+
 //
 // Arguments    : double varargin_1
 //                ::coder::array<double, 1U> &w
@@ -52,6 +85,10 @@ void hamming(double varargin_1, ::coder::array<double, 1U> &w)
       "Files\\MATLAB\\toolbox\\signal\\signal\\private\\gencoswin.m", // pName
       0 // checkKind
   };
+  static rtRunTimeErrorInfo f_emlrtRTEI{
+      14,                   // lineNo
+      "validatenonnegative" // fName
+  };
   array<double, 1U> b_w;
   double L;
   int i;
@@ -59,14 +96,14 @@ void hamming(double varargin_1, ::coder::array<double, 1U> &w)
   int w_size;
   signed char w_data;
   if (std::isinf(varargin_1) || std::isnan(varargin_1)) {
-    f_rtErrorWithMessageID("input number 1, N,", i_emlrtRTEI.fName,
-                           i_emlrtRTEI.lineNo);
+    c_rtErrorWithMessageID("input number 1, N,", d_emlrtRTEI.fName,
+                           d_emlrtRTEI.lineNo);
   }
   w_size = 1;
   w_data = 0;
   trivialwin = 0;
   if (varargin_1 < 0.0) {
-    d_rtErrorWithMessageID("N", g_emlrtRTEI.fName, g_emlrtRTEI.lineNo);
+    b_rtErrorWithMessageID("N", f_emlrtRTEI.fName, f_emlrtRTEI.lineNo);
   }
   if (varargin_1 == std::floor(varargin_1)) {
     L = varargin_1;

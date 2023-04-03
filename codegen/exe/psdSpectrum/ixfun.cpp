@@ -5,7 +5,7 @@
 // File: ixfun.cpp
 //
 // MATLAB Coder version            : 5.4
-// C/C++ source code generated on  : 03-Apr-2023 13:38:12
+// C/C++ source code generated on  : 03-Apr-2023 14:44:32
 //
 
 // Include Files
@@ -23,7 +23,7 @@
 #include <string>
 
 // Function Declarations
-static void x_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
+static void u_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
 
 // Function Definitions
 //
@@ -31,7 +31,7 @@ static void x_rtErrorWithMessageID(const char *aFcnName, int aLineNum);
 //                int aLineNum
 // Return Type  : void
 //
-static void x_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
+static void u_rtErrorWithMessageID(const char *aFcnName, int aLineNum)
 {
   std::string errMsg;
   std::stringstream outStream;
@@ -59,7 +59,7 @@ void expand_max(const ::coder::array<double, 2U> &a,
                 const ::coder::array<double, 1U> &b,
                 ::coder::array<double, 2U> &c)
 {
-  static rtRunTimeErrorInfo k_emlrtRTEI{
+  static rtRunTimeErrorInfo f_emlrtRTEI{
       160,         // lineNo
       "expand_max" // fName
   };
@@ -76,7 +76,7 @@ void expand_max(const ::coder::array<double, 2U> &a,
       csz_idx_0 = u0;
     }
     if (a.size(0) != b.size(0)) {
-      x_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+      u_rtErrorWithMessageID(f_emlrtRTEI.fName, f_emlrtRTEI.lineNo);
     }
   }
   c.set_size(csz_idx_0, a.size(1));
@@ -102,7 +102,7 @@ void expand_min(const ::coder::array<double, 2U> &a,
                 const ::coder::array<double, 1U> &b,
                 ::coder::array<double, 2U> &c)
 {
-  static rtRunTimeErrorInfo k_emlrtRTEI{
+  static rtRunTimeErrorInfo f_emlrtRTEI{
       160,         // lineNo
       "expand_min" // fName
   };
@@ -119,7 +119,7 @@ void expand_min(const ::coder::array<double, 2U> &a,
       csz_idx_0 = u0;
     }
     if (a.size(0) != b.size(0)) {
-      x_rtErrorWithMessageID(k_emlrtRTEI.fName, k_emlrtRTEI.lineNo);
+      u_rtErrorWithMessageID(f_emlrtRTEI.fName, f_emlrtRTEI.lineNo);
     }
   }
   c.set_size(csz_idx_0, a.size(1));

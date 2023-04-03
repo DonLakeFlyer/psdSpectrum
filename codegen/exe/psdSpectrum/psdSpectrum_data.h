@@ -5,7 +5,7 @@
 // File: psdSpectrum_data.h
 //
 // MATLAB Coder version            : 5.4
-// C/C++ source code generated on  : 03-Apr-2023 13:38:12
+// C/C++ source code generated on  : 03-Apr-2023 14:44:32
 //
 
 #ifndef PSDSPECTRUM_DATA_H
@@ -27,13 +27,6 @@ extern rtRunTimeErrorInfo b_emlrtRTEI;
 extern rtRunTimeErrorInfo c_emlrtRTEI;
 extern rtRunTimeErrorInfo d_emlrtRTEI;
 extern rtRunTimeErrorInfo e_emlrtRTEI;
-extern rtEqualityCheckInfo emlrtECI;
-extern rtRunTimeErrorInfo f_emlrtRTEI;
-extern rtDoubleCheckInfo b_emlrtDCI;
-extern rtRunTimeErrorInfo g_emlrtRTEI;
-extern rtRunTimeErrorInfo h_emlrtRTEI;
-extern rtRunTimeErrorInfo i_emlrtRTEI;
-extern rtRunTimeErrorInfo j_emlrtRTEI;
 extern const char cv[128];
 extern const char cv1[10];
 extern const char cv2[15];
