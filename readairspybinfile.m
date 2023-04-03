@@ -8,7 +8,7 @@ if fid ~= -1
     fprintf('Done.\n')
 else
     fprintf('UAV-RT: Error opening file at path provided.\n')
-    return
+    dataRaw = [];
 end
 if mod(dataRaw,2)~=0
     dataRaw(2,end) = 0;
