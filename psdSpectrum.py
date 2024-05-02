@@ -17,7 +17,7 @@ samples     = np.fromfile(args.file, np.complex64)
 
 f, Pxxf = signal.welch(samples, args.fs, window=rectWindow, noverlap=nOverlap, return_onesided=False)
 
-plt.semilogy(f, Pxxf, '-', linewidth=1)
+plt.plot(f, 10*np.log10(Pxxf), '-', linewidth=1)
 
 plt.grid()
 plt.show()
