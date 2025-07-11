@@ -5,7 +5,7 @@ import math
 import argparse
 
 parser = argparse.ArgumentParser("psdSpectrum.py")
-parser.add_argument("-fs",   help="Sample rate.", type=float, required=True)
+parser.add_argument("-fs",   help="Sample rate.", type=float, default=3000000)
 parser.add_argument("-file", help="IQ file.", required=True)
 args = parser.parse_args()
 
