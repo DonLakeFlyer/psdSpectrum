@@ -5,13 +5,13 @@ import math
 import argparse
 
 parser = argparse.ArgumentParser("psdSpectrum.py")
-parser.add_argument("-sdr", help="SDR type.", choices=["airspy", "hf"], default="hf")
+parser.add_argument("-sdr", help="SDR type.", choices=["mini", "hf"], required=True)
 parser.add_argument("-file", help="IQ file.", required=True)
 args = parser.parse_args()
 
 # Map SDR type to sample rate
 sdr_sample_rates = {
-    "airspy": 3000000,
+    "mini": 3000000,
     "hf": 768000
 }
 fs = sdr_sample_rates[args.sdr]
@@ -23,7 +23,7 @@ nOverlap    = math.floor(0.5 * nWind);
 samples     = np.fromfile(args.file, np.complex64)
 
 # Decimate Airspy samples to match HF sample rate
-if args.sdr == "airspy":
+if args.sdr == "mini":
     decimation_factor = 4  # 3000000 / 768000 ≈ 3.90625, use 4 for integer decimation
     samples = signal.decimate(samples, decimation_factor, ftype='iir')
     fs = fs // decimation_factor  # Update sample rate after decimation
