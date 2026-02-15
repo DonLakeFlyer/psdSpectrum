@@ -3,6 +3,9 @@ import matplotlib.pyplot as plt
 import scipy.signal as signal
 import math
 import argparse
+import os
+
+from scipy.signal import medfilt
 
 parser = argparse.ArgumentParser("psdSpectrum.py")
 parser.add_argument("-sdr", help="SDR type.", choices=["mini", "hf"], required=True)
@@ -34,12 +37,27 @@ f, Pxxf = signal.welch(samples, fs, window=rectWindow, noverlap=nOverlap, return
 Pxxf_dB = 10*np.log10(Pxxf)
 avg_noise_floor = np.mean(Pxxf_dB)
 
+# Calculate spectral flatness (geometric mean / arithmetic mean)
+# Convert from dB to linear scale for geometric/arithmetic mean calculation
+Pxxf_linear = 10**(Pxxf_dB / 10)
+geometric_mean = np.exp(np.mean(np.log(Pxxf_linear + 1e-10)))  # add small value to avoid log(0)
+arithmetic_mean = np.mean(Pxxf_linear)
+flatness = 10 * np.log10(geometric_mean / arithmetic_mean)  # in dB
+print(f"Spectral Flatness: {flatness:.2f} dB- higher values indicate a flatter spectrum")
+
+# Calculate spikiness as peak-to-baseline ratio (how much peaks stand out)
+baseline = medfilt(Pxxf_dB, kernel_size=101)   # smooth baseline
+peak_deviation = Pxxf_dB - baseline
+spikiness = np.max(peak_deviation)  # maximum deviation from baseline
+print(f"Spikiness: {spikiness:.2f} dB - higher values indicate more pronounced peaks")
+
 # Set y-axis limits based on noise floor
 y_min = avg_noise_floor - 2
 y_max = y_min + 20
 
 plt.plot(f / 1e6, Pxxf_dB, '-', linewidth=1)
-plt.title(args.file)
+filename = os.path.basename(args.file)
+plt.title(f'{filename}\nFlatness: {flatness:.2f} dB | Spikiness: {spikiness:.2f} dB')
 
 plt.xlabel('Frequency (MHz)')
 # Format x-axis ticks to show 3 decimal places (MHz)
