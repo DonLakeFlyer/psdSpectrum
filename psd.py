@@ -30,8 +30,21 @@ if args.sdr == "mini":
 
 f, Pxxf = signal.welch(samples, fs, window=rectWindow, noverlap=nOverlap, return_onesided=False)
 
-plt.plot(f, 10*np.log10(Pxxf), '-', linewidth=1)
+# Convert to dB and compute average noise floor
+Pxxf_dB = 10*np.log10(Pxxf)
+avg_noise_floor = np.mean(Pxxf_dB)
+
+# Set y-axis limits based on noise floor
+y_min = avg_noise_floor - 2
+y_max = y_min + 20
+
+plt.plot(f / 1e6, Pxxf_dB, '-', linewidth=1)
 plt.title(args.file)
 
+plt.xlabel('Frequency (MHz)')
+# Format x-axis ticks to show 3 decimal places (MHz)
+plt.gca().xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'{x:.3f}'))
+
+plt.ylim(y_min, y_max)
 plt.grid()
 plt.show()
