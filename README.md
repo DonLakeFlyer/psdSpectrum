@@ -7,7 +7,9 @@ A Python-based tool for analyzing power spectral density (PSD) of IQ samples cap
 This project consists of:
 - **capture_hf.sh** - Capture IQ samples using Airspy HF+
 - **capture_mini.sh** - Capture IQ samples using Airspy Mini
-- **psd.py** - Analyze captured IQ samples and compute PSD metrics
+- **graph_hf.sh** - Analyze and graph IQ samples from Airspy HF+
+- **graph_mini.sh** - Analyze and graph IQ samples from Airspy Mini
+- **psd.py** - Python script that computes power spectral density and metrics (called by graph scripts)
 
 ## Prerequisites
 
