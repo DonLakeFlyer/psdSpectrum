@@ -36,6 +36,7 @@ f, Pxxf = signal.welch(samples, fs, window=rectWindow, noverlap=nOverlap, return
 # Convert to dB and compute average noise floor
 Pxxf_dB = 10*np.log10(Pxxf)
 avg_noise_floor = np.mean(Pxxf_dB)
+print(f"Average Noise Floor: {avg_noise_floor:.2f} dB")
 
 # Calculate spectral flatness (geometric mean / arithmetic mean)
 # Convert from dB to linear scale for geometric/arithmetic mean calculation
@@ -57,7 +58,7 @@ y_max = y_min + 20
 
 plt.plot(f / 1e6, Pxxf_dB, '-', linewidth=1)
 filename = os.path.basename(args.file)
-plt.title(f'{filename}\nFlatness: {flatness:.2f} dB | Spikiness: {spikiness:.2f} dB')
+plt.title(f'{filename}\nNoise Floor: {avg_noise_floor:.2f} dB | Flatness: {flatness:.2f} dB | Spikiness: {spikiness:.2f} dB')
 
 plt.xlabel('Frequency (MHz)')
 # Format x-axis ticks to show 3 decimal places (MHz)
