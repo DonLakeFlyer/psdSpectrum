@@ -119,7 +119,7 @@ The script generates:
    - Power spectral density across frequency
    - Title with filename and metrics on two lines
    - Frequency in MHz on x-axis
-   - Power in dB on y-axis
+   - PSD in dBFS/Hz on y-axis
 
 ## Metrics
 
