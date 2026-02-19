@@ -4,6 +4,7 @@ import scipy.signal as signal
 import math
 import argparse
 import os
+from typing import Any, cast
 from matplotlib.ticker import FuncFormatter
 
 from scipy.signal import medfilt
@@ -23,6 +24,7 @@ fs = sdr_sample_rates[args.sdr]
 windTime    = 0.02
 nWind       = fs * windTime;
 nperseg     = math.floor(nWind)
+window      = cast(Any, signal.get_window("hann", nperseg, fftbins=False))
 nOverlap    = math.floor(0.5 * nWind);
 samples     = np.fromfile(args.file, np.complex64)
 
@@ -32,16 +34,12 @@ if args.sdr == "mini":
     samples = signal.decimate(samples, decimation_factor, ftype='iir')
     fs = fs // decimation_factor  # Update sample rate after decimation
 
-f, Pxxf = signal.welch(samples, fs, window="hann", nperseg=nperseg, noverlap=nOverlap, return_onesided=False)
+f, Pxxf = signal.welch(samples, fs, window=window, noverlap=nOverlap, return_onesided=False, scaling='density')
 
-# Convert Welch density to true dBFS/Hz via bin bandwidth:
-# 1) PSD density [FS^2/Hz] -> per-bin power [FS^2/bin] by multiplying by delta_f
-# 2) Per-bin dBFS -> normalize back to dBFS/Hz by subtracting 10*log10(delta_f)
+# Welch with scaling='density' already returns PSD in power/Hz.
 delta_f = fs / nperseg
 eps = np.finfo(float).tiny
-Pxxf_per_bin = np.maximum(Pxxf * delta_f, eps)
-Pxxf_dBFS_bin = 10 * np.log10(Pxxf_per_bin)
-Pxxf_dBFS_Hz = Pxxf_dBFS_bin - 10 * np.log10(delta_f)
+Pxxf_dBFS_Hz = 10 * np.log10(np.maximum(Pxxf, eps))
 
 avg_noise_floor = np.mean(Pxxf_dBFS_Hz)
 print(f"Average Noise Floor: {avg_noise_floor:.2f} dBFS/Hz")
