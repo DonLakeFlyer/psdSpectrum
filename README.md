@@ -119,7 +119,33 @@ The script generates:
    - Power spectral density across frequency
    - Title with filename and metrics on two lines
    - Frequency in MHz on x-axis
-   - Power in dB on y-axis
+   - PSD in dBFS/Hz on y-axis
+
+## How to Read the Chart
+
+### Axes and Units
+- **X-axis (MHz):** Frequency bins across the captured baseband (centered at 0 Hz in IQ/baseband terms).
+- **Y-axis (dBFS/Hz):** Power spectral density relative to full scale, normalized per 1 Hz bandwidth.
+- Because the PSD is per-Hz (`scaling='density'` in Welch), values are comparable across different FFT/bin widths.
+
+### What the Trace Shows
+- Each point is the average PSD estimate from Welch periodograms using a **symmetric Hann window** and **50% overlap**.
+- The line represents how noise and signals are distributed versus frequency.
+- Narrow peaks usually indicate carriers/interference; a smooth baseline indicates broadband noise floor.
+
+### Title Metrics
+- **Noise Floor:** Mean of all plotted PSD points (dBFS/Hz).
+- **Flatness (dB):** $10\log_{10}(\text{geometric mean}/\text{arithmetic mean})$ of the PSD.
+   - Closer to 0 dB = flatter spectrum.
+   - More negative = more uneven spectrum.
+- **Spikiness (dB):** Maximum deviation above a median-filter baseline.
+   - Higher = stronger isolated peaks above baseline.
+   - Lower = smoother, less peaky spectrum.
+
+### Auto-Scaling Behavior
+- The y-axis is auto-centered around the computed noise floor.
+- Display range is fixed to a 20 dB span (`noise_floor - 2 dB` to `+20 dB` above that, i.e. `noise_floor + 18 dB`).
+- This improves visibility of weak peaks, but absolute vertical framing changes from file to file.
 
 ## Metrics
 
