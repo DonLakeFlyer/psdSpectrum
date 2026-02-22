@@ -10,16 +10,20 @@ from matplotlib.ticker import FuncFormatter
 from scipy.signal import medfilt
 
 parser = argparse.ArgumentParser("psdSpectrum.py")
-parser.add_argument("-sdr", help="SDR type.", choices=["mini", "hf"], required=True)
+parser.add_argument("-sdr", help="SDR type.", choices=["mini", "hf"])
 parser.add_argument("-file", help="IQ file.", required=True)
+parser.add_argument("-sr", type=int, help="Custom sample rate in Hz (overrides -sdr).")
 args = parser.parse_args()
+
+if args.sr is None and args.sdr is None:
+    parser.error("either -sdr or -sr is required")
 
 # Map SDR type to sample rate
 sdr_sample_rates = {
     "mini": 3000000,
     "hf": 768000
 }
-fs = sdr_sample_rates[args.sdr]
+fs = args.sr if args.sr else sdr_sample_rates[args.sdr]
 
 windTime    = 0.02
 nWind       = fs * windTime;
@@ -29,7 +33,7 @@ nOverlap    = math.floor(0.5 * nWind);
 samples     = np.fromfile(args.file, np.complex64)
 
 # Decimate Airspy samples to match HF sample rate
-if args.sdr == "mini":
+if args.sdr == "mini" and args.sr is None:
     decimation_factor = 4  # 3000000 / 768000 ≈ 3.90625, use 4 for integer decimation
     samples = signal.decimate(samples, decimation_factor, ftype='iir')
     fs = fs // decimation_factor  # Update sample rate after decimation
@@ -54,7 +58,10 @@ flatness = 10 * np.log10(geometric_mean / arithmetic_mean)  # in dB
 print(f"Spectral Flatness: {flatness:.2f} dB- higher values indicate a flatter spectrum")
 
 # Calculate spikiness as peak-to-baseline ratio (how much peaks stand out)
-baseline = medfilt(Pxxf_dBFS_Hz, kernel_size=101)   # smooth baseline
+kernel_size = min(101, len(Pxxf_dBFS_Hz))
+if kernel_size % 2 == 0:
+    kernel_size -= 1  # medfilt requires odd kernel size
+baseline = medfilt(Pxxf_dBFS_Hz, kernel_size=kernel_size)   # smooth baseline
 peak_deviation = Pxxf_dBFS_Hz - baseline
 spikiness = np.max(peak_deviation)  # maximum deviation from baseline
 print(f"Spikiness: {spikiness:.2f} dB - higher values indicate more pronounced peaks")
