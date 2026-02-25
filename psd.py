@@ -10,14 +10,16 @@ from matplotlib.ticker import FuncFormatter
 from scipy.signal import medfilt
 
 parser = argparse.ArgumentParser("psdSpectrum.py")
-parser.add_argument("-sdr", help="SDR type.", choices=["mini", "hf"], required=True)
+parser.add_argument("-sdr", help="SDR type.", choices=["mini", "hf", "uavrt_hf", "uavrt_mini"], required=True)
 parser.add_argument("-file", help="IQ file.", required=True)
 args = parser.parse_args()
 
 # Map SDR type to sample rate
 sdr_sample_rates = {
     "mini": 3000000,
-    "hf": 768000
+    "hf": 768000,
+    "uavrt_hf": 3840,
+    "uavrt_mini": 3750
 }
 fs = sdr_sample_rates[args.sdr]
 

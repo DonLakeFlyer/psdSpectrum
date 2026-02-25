@@ -7,6 +7,7 @@ A Python-based tool for analyzing power spectral density (PSD) of IQ samples cap
 This project consists of:
 - **capture_hf.sh** - Capture IQ samples using Airspy HF+
 - **capture_mini.sh** - Capture IQ samples using Airspy Mini
+- **graph.sh** - Analyze and graph IQ samples for any supported SDR type
 - **graph_hf.sh** - Analyze and graph IQ samples from Airspy HF+
 - **graph_mini.sh** - Analyze and graph IQ samples from Airspy Mini
 - **psd.py** - Python script that computes power spectral density and metrics (called by graph scripts)
@@ -78,22 +79,43 @@ Sample rate: **3,000,000 Hz** (automatically decimated to 768,000 Hz in psd.py f
 ### Using Python Directly
 
 ```bash
-python psd.py -sdr <mini|hf> -file <iq_file>
+python psd.py -sdr <mini|hf|uavrt_hf|uavrt_mini> -file <iq_file>
 ```
 
 **Arguments:**
-- `-sdr` - SDR type: `mini` or `hf` (required)
+- `-sdr` - SDR type: `mini`, `hf`, `uavrt_hf`, or `uavrt_mini` (required)
 - `-file` - Path to IQ file (required)
 
 **Example:**
 ```bash
 python psd.py -sdr hf -file output.iq
 python psd.py -sdr mini -file output.iq
+python psd.py -sdr uavrt_hf -file output.iq
+python psd.py -sdr uavrt_mini -file output.iq
 ```
 
 ### Using Graph Scripts (Recommended)
 
-Convenience wrapper scripts that automatically call `psd.py` with the correct SDR type:
+Use the unified graph wrapper:
+
+```bash
+./graph.sh -sdr <mini|hf|uavrt_hf|uavrt_mini> <iq_file>
+```
+
+**Examples:**
+
+```bash
+./graph.sh -sdr hf output.iq
+./graph.sh -sdr uavrt_hf output.iq
+```
+
+`-file` is also supported as an optional legacy form:
+
+```bash
+./graph.sh -sdr hf -file output.iq
+```
+
+Legacy convenience wrappers are still available and automatically call `psd.py` with the correct SDR type:
 
 ```bash
 ./graph_hf.sh <iq_file>
@@ -168,7 +190,7 @@ The script generates:
 ./capture_hf.sh test.iq -f 146.5 -d 5000
 
 # Analyze and graph the capture
-./graph_hf.sh test.iq
+./graph.sh -sdr hf test.iq
 ```
 
 Or using Python directly:
@@ -179,5 +201,7 @@ python psd.py -sdr hf -file test.iq
 ## Notes
 
 - **Airspy Mini samples** are decimated from 3,000,000 Hz to 768,000 Hz for consistency with HF+ sample rate
+- **uavrt_hf sample rate** is 3,840 Hz
+- **uavrt_mini sample rate** is 3,750 Hz
 - The spectral analysis uses a Hann window with 50% overlap for Welch periodogram
 - Y-axis limits are automatically set relative to the noise floor (±2 dB, 20 dB span)
